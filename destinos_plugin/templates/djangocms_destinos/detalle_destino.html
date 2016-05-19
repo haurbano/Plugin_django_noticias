@@ -1,0 +1,20 @@
+{% extends CMS_TEMPLATE %}
+{% load thumbnail %}
+{% load cms_tags %}
+
+{% block content %}
+{%if destino%}
+<h1>Detalles del destino</h1>
+<h2>{{destino.nombre}}</h2>
+{% if destino.photo_inicial %}
+{% thumbnail destino.photo '270x230' crop as photo %}
+<img src="{{ photo.url }}" width="{{ photo.width }}" height="{{ photo.height }}" alt="{{ destino.title }}" />
+{%else%}
+  <h1>No hay foto</h1>
+{% endif %}
+<h1>placeholder Imagenes</h1>
+{% render_placeholder destino.placeholderimgs "Images placeholder" %}
+<h1>Placeholder Contacto</h1>
+{% render_placeholder destino.placeholdercontact "Contacto placeholder" %}
+{%endif%}
+{% endblock %}

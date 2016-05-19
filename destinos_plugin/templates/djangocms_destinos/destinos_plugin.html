@@ -1,0 +1,7 @@
+<h1>Hola soy el plugin</h1>
+  {% for des in instance.list_destinos %}
+    <a href="/destinos/{{des.id}}"><h1>{{des.nombre}}</h1></a>
+    <p>
+      {{des.descripcion}}
+    </p>
+  {%endfor%}
